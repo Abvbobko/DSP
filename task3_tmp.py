@@ -4,10 +4,10 @@ from signals import polyharmonic
 import pandas as pd
 
 
-def task3(storage, option):
+def task3(storage, option, N):
     table_g = storage.get_g(option)
 
-    N = 512
+    # N = 512
     n_list = list(range(N))
 
     # task 3.1 (просто таблица)
