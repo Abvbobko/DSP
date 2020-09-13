@@ -22,8 +22,7 @@ def generate_parameter(start_values, n, proportion=1.2, num_of_periods=1):
 
 def task4(option, storage, N=512, num_of_periods=1):
     table_g = storage.get_g(option)
-    print(table_g)
-    # N = 512
+
     n_list = list(range(num_of_periods * N))
     x = []
 
@@ -42,7 +41,6 @@ def task4(option, storage, N=512, num_of_periods=1):
             n=n_list[i],
             phi=phi[i])
         if (i % N == 0) and (i != 0):
-            # ax.plot(n_list[i-N: i], x[i-N: i])
             period[0].append(i)
             period[1].append(signal_value)
         x.append(signal_value)
