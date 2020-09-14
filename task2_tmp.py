@@ -26,6 +26,7 @@ def series_to_list(num_of_cols, param_name, table):
 
 
 def task2(option, storage, N=512):
+    print("=== task 2 ===")
     SIZE = 5
     fig, ax = plt.subplots(SIZE, 3)
 
