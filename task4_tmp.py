@@ -21,6 +21,7 @@ def generate_parameter(start_values, n, proportion=1.2, num_of_periods=1):
 
 
 def task4(option, storage, N=512, num_of_periods=1):
+    print("=== task 4 ===")
     table_g = storage.get_g(option)
 
     n_list = list(range(num_of_periods * N))
@@ -32,6 +33,8 @@ def task4(option, storage, N=512, num_of_periods=1):
 
     period = [[], []]
     fig, ax = plt.subplots()
+    fig.suptitle("Polyharmonic with linear param changing")
+
     for i in range(len(n_list)):
         signal_value = polyharmonic.polyharmonic_signal(
             k=5,

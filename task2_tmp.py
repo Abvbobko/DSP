@@ -26,7 +26,6 @@ def series_to_list(num_of_cols, param_name, table):
 
 
 def task2(option, storage, N=512):
-    print("=== task 2 ===")
     SIZE = 5
     fig, ax = plt.subplots(SIZE, 3)
 
@@ -34,6 +33,7 @@ def task2(option, storage, N=512):
     fig.tight_layout()
 
     # task 2a
+    print("=== task 2.a ===")
     table_a = storage.get_a(option)
 
     A = table_a.A
@@ -43,6 +43,7 @@ def task2(option, storage, N=512):
     create_signal(N=N, A=[A]*SIZE, f=[f]*SIZE, phi=phi, ax=ax, plot_column=0)
 
     # task 2b
+    print("=== task 2.b ===")
     table_b = storage.get_b(option)
 
     A = table_b.A
@@ -52,6 +53,7 @@ def task2(option, storage, N=512):
     create_signal(N=N, A=[A]*SIZE, f=f, phi=[phi]*SIZE, ax=ax, plot_column=1)
 
     # task 2v
+    print("=== task 2.c ===")
     table_v = storage.get_v(option)
 
     A = series_to_list(num_of_cols=SIZE, param_name='A', table=table_v)
