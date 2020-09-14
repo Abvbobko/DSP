@@ -47,7 +47,6 @@ def task4(option, storage, N=512, num_of_periods=1):
             period[0].append(i)
             period[1].append(signal_value)
         x.append(signal_value)
-
     ax.plot(n_list, x)
     ax.scatter(period[0], period[1], color='r')
     plt.show()
