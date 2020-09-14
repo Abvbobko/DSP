@@ -2,8 +2,15 @@ import matplotlib.pyplot as plt
 from signals import harmonic
 
 
-def create_signal(N, A, f, phi, ax, plot_column):
+def create_signal(N, A, f, phi, ax, plot_column, out_accuracy=2):
     for i in range(len(A)):
+        title = " | ".join([
+            f"A: {round(A[i], out_accuracy)}",
+            f"f: {round(f[i], out_accuracy)}",
+            f"phi: {round(phi[i], out_accuracy)}"
+        ])
+        ax[i][plot_column].set_title(title)
+
         n_list = list(range(N))
         x = [
             harmonic.harmonic_signal(A=A[i], f=f[i], n=n, N=N, phi=phi[i])
@@ -21,6 +28,9 @@ def series_to_list(num_of_cols, param_name, table):
 def task2(option, storage, N=512):
     SIZE = 5
     fig, ax = plt.subplots(SIZE, 3)
+
+    fig.suptitle('Harmonic signal', fontsize=14, fontweight='bold')
+    fig.tight_layout()
 
     # task 2a
     table_a = storage.get_a(option)
@@ -50,6 +60,3 @@ def task2(option, storage, N=512):
     create_signal(N=N, A=A, f=[f]*SIZE, phi=[phi]*SIZE, ax=ax, plot_column=2)
 
     plt.show()
-
-
-

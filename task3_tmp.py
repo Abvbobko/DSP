@@ -23,11 +23,13 @@ def task3(storage, option, N):
     fig_size = (5, 7)
     ax1 = plt.subplot2grid(fig_size, (0, 0), rowspan=3, colspan=3)
     # fig, ax = plt.subplots()
+    ax1.set_title(f'Polyharmonic signal')
     create_signal(k=5, A=table_g.A, N=N, f=table_g.f, phi=table_g.phi, ax=ax1, plot_column=0)
 
     # plt.show()
 
     # task 3.2 (изменять phi)
+    # ToDo: посмотреть 3 таску
     # fig, ax = plt.subplots(SIZE, 2)
 
     c_offset = pi/4
