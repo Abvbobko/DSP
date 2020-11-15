@@ -3,8 +3,7 @@
 # import task3_tmp
 # import task4_tmp
 
-import task22
-import math
+from lab1 import task22
 
 if __name__ == '__main__':
     N = 64  # int(input())
