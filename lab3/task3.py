@@ -24,12 +24,7 @@ def signal_recovering(N, A, phi):
     return y
 
 
-if __name__ == "__main__":
-    N = 128
-    B = [2, 3, 5, 9, 10, 12, 15]
-    phi = [pi/6, pi/4, pi/3, pi/2, 3*pi/4, pi]
-    x = generate_polyharmonic_test_signal(N, B, phi)
-
+def task3(x, N):
     A_c, A_s, A, phi = [], [], [], []
     for j in range(int(N / 2 - 1)):
         A_cj, A_sj, A_j, phi_j = task2.dft(x, N, j)
@@ -40,14 +35,20 @@ if __name__ == "__main__":
         phi.append(phi_j)
 
     y1 = signal_recovering(N, A, phi)
-    y2 = signal_recovering(N, A, len(phi)*[0])
+    y2 = signal_recovering(N, A, len(phi) * [0])
     # plt.plot(list(range(int(N/2 - 1))), A)
     # plt.plot(list(range(int(N / 2 - 1))), phi)
+    fig, ax = plt.subplots(3)
 
-    # print(A)
-    # print(phi)
-    plt.plot(list(range(N)), x, c="red", label="x", linewidth=3)
-    plt.plot(list(range(N)), y1, c="green", label="y1", linewidth=2)
-    plt.plot(list(range(N)), y2, c="black", label="y2", linewidth=1)
-    plt.legend()
+    ax[0].set_title('task 2')
+    ax[0].plot(list(range(N)), x, c="red", label="x", linewidth=3)
+    ax[0].plot(list(range(N)), y1, c="green", label="y1", linewidth=2)
+    ax[0].plot(list(range(N)), y2, c="black", label="y2", linewidth=1)
+
+    ax[1].plot(list(range(int(N/2 - 1))), A, label="A")
+    ax[2].plot(list(range(int(N/2 - 1))), phi, label="зрш")
+
+    for a in ax:
+        a.legend()
+
     plt.show()

@@ -28,14 +28,15 @@ def band_pass_filter(x):
     return pass_filter(x, lambda t: not (LOW_BORDER < t < HIGH_BORDER))
 
 
-if __name__ == '__main__':
-    N = 128
-    B = [2, 3, 5, 9, 10, 12, 15]
-    phi = [pi / 6, pi / 4, pi / 3, pi / 2, 3 * pi / 4, pi]
-    x = task3.generate_polyharmonic_test_signal(N, B, phi)
-    plt.plot(list(range(len(x))), x, c="black", linewidth=3, label="x")
-    plt.plot(list(range(len(x))), low_pass_filter(x), c="red", linewidth=1, label="hx")
-    plt.plot(list(range(len(x))), high_pass_filter(x), c="orange", linewidth=1, label="lx")
-    plt.plot(list(range(len(x))), band_pass_filter(x), c="green", linewidth=1, label="bx")
-    plt.legend()
+def task5(x):
+    fig, ax = plt.subplots(4)
+    ax[0].set_title("task 3-4")
+    ax[0].plot(list(range(len(x))), x, c="black", linewidth=3, label="x")
+    ax[1].plot(list(range(len(x))), low_pass_filter(x), c="red", linewidth=1, label="hx")
+    ax[2].plot(list(range(len(x))), high_pass_filter(x), c="orange", linewidth=1, label="lx")
+    ax[3].plot(list(range(len(x))), band_pass_filter(x), c="green", linewidth=1, label="bx")
+
+    for a in ax:
+        a.legend()
     plt.show()
+

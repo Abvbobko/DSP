@@ -33,11 +33,9 @@ def test_signal_generator(N, A=100, f=20, phi=pi/4):
     return [A*cos(2*pi*f*i/N - phi) for i in range(N)]
 
 
-if __name__ == '__main__':
-    N = 128
-    x = test_signal_generator(N)
+def task2(x, N):
     A_c, A_s, A, phi = [], [], [], []
-    for j in range(int(N/2 - 1)):
+    for j in range(int(N / 2 - 1)):
         A_cj, A_sj, A_j, phi_j = dft(x, N, j)
 
         A_c.append(A_cj)
@@ -47,14 +45,15 @@ if __name__ == '__main__':
 
     y = signal_recovering(N, A, phi)
 
-    # plt.plot(list(range(int(N/2 - 1))), A, label="A")
-    plt.plot(list(range(int(N / 2 - 1))), phi, label="phi")
+    fig, ax = plt.subplots(3)
 
-    # print(A)
-    # print(phi)
-    # plt.plot(list(range(N)), x, c="red", label="x", linewidth=3)
-    # plt.plot(list(range(N)), y, c="green", label="y")
-    plt.legend()
+    ax[0].set_title('task 1')
+    ax[0].plot(list(range(N)), x, c="red", label="x", linewidth=3)
+    ax[0].plot(list(range(N)), y, c="green", label="y")
+
+    ax[1].plot(list(range(int(N/2 - 1))), A, label="A")
+    ax[2].plot(list(range(int(N / 2 - 1))), phi, label="phi")
+
+    for a in ax:
+        a.legend()
     plt.show()
-
-
