@@ -47,13 +47,13 @@ if __name__ == '__main__':
 
     y = signal_recovering(N, A, phi)
 
-    # plt.plot(list(range(int(N/2 - 1))), A)
-    # plt.plot(list(range(int(N / 2 - 1))), phi)
+    # plt.plot(list(range(int(N/2 - 1))), A, label="A")
+    plt.plot(list(range(int(N / 2 - 1))), phi, label="phi")
 
     # print(A)
     # print(phi)
-    plt.plot(list(range(N)), x, c="red", label="x", linewidth=3)
-    plt.plot(list(range(N)), y, c="green", label="y")
+    # plt.plot(list(range(N)), x, c="red", label="x", linewidth=3)
+    # plt.plot(list(range(N)), y, c="green", label="y")
     plt.legend()
     plt.show()
 
