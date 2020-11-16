@@ -33,7 +33,7 @@ def test_signal_generator(N, A=100, f=20, phi=pi/4):
     return [A*cos(2*pi*f*i/N - phi) for i in range(N)]
 
 
-def task2(x, N):
+def get_spectrum(x, N):
     A_c, A_s, A, phi = [], [], [], []
     for j in range(int(N / 2 - 1)):
         A_cj, A_sj, A_j, phi_j = dft(x, N, j)
@@ -43,6 +43,11 @@ def task2(x, N):
         A.append(A_j)
         phi.append(phi_j)
 
+    return A_c, A_s, A, phi
+
+
+def task2(x, N):
+    A_c, A_s, A, phi = get_spectrum(x, N)
     y = signal_recovering(N, A, phi)
 
     fig, ax = plt.subplots(3)
